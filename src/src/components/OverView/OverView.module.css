@@ -1,0 +1,21 @@
+.confirmed {
+  background: #ddebec !important;
+  color: #16607A;
+  text-align: center;
+}
+
+.recovered {
+  background: #bbd898 !important;
+  color: #003905;
+  text-align: center;
+}
+
+.death {
+  background: #e0e0e0 !important;
+  color: #353135;
+  text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+}
