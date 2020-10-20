@@ -1,4 +1,4 @@
-# covid-19-stat
+# COVID-19 STAT
 
 A simple COVID-19 coronavirus statistics web application. 
 
