@@ -11,7 +11,7 @@ const DashBoard: React.FC = () => {
 
     useEffect(() => {
         fetchDailyDataByCountry("japan");
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <Container className="p-3">
