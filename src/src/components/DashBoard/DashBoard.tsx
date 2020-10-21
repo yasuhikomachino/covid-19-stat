@@ -4,6 +4,7 @@ import CountryPicker from "../CountryPicker/CountryPicker";
 import DailyReport from "../DailyReport/DailyReport";
 import MotalityRate from "../MotalityRate/MotalityRate";
 import OverView from "../OverView/OverView";
+import SummaryTable from "../SummaryTable/SummaryTable";
 
 const DashBoard: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const DashBoard: React.FC = () => {
             <OverView />
             <MotalityRate />
             <DailyReport />
+            <SummaryTable />
         </Container>
     );
 };
