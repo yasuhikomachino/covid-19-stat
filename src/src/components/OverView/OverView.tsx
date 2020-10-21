@@ -7,6 +7,9 @@ import style from "./OverView.module.css";
 const OverView: React.FC = () => {
     const { dailyDataByCountry } = useContext(CovidContext);
     const latest = dailyDataByCountry[dailyDataByCountry.length - 1];
+    const second = dailyDataByCountry.length > 1
+        ? dailyDataByCountry[dailyDataByCountry.length - 2]
+        : { Confirmed: 0, Recovered: 0, Deaths: 0 };
 
     return (
         <div className="my-5">
@@ -23,7 +26,7 @@ const OverView: React.FC = () => {
                                 separator=","
                             />
                         </Card.Title>
-                        <Card.Text></Card.Text>
+                        <Card.Text>+{latest.Confirmed - second.Confirmed}</Card.Text>
                     </Card.Body>
                 </Card>
                 <Card className={style.recovered}>
@@ -37,7 +40,7 @@ const OverView: React.FC = () => {
                                 separator=","
                             />
                         </Card.Title>
-                        <Card.Text></Card.Text>
+                        <Card.Text>+{latest.Recovered - second.Recovered}</Card.Text>
                     </Card.Body>
                 </Card>
                 <Card className={style.death}>
@@ -51,7 +54,7 @@ const OverView: React.FC = () => {
                                 separator=","
                             />
                         </Card.Title>
-                        <Card.Text></Card.Text>
+                        <Card.Text>+{latest.Deaths - second.Deaths}</Card.Text>
                     </Card.Body>
                 </Card>
             </CardDeck>
