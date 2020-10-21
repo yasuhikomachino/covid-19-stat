@@ -6,8 +6,17 @@ const Header: React.FC = () => {
     const { dailyDataByCountry } = useContext(CovidContext);
     const latest = dailyDataByCountry[dailyDataByCountry.length - 1];
     return (
-        <Navbar className="border-bottom">
-            <Navbar.Brand>COVID-19 STAT</Navbar.Brand>
+        <Navbar className="border-bottom py-3">
+            <Navbar.Brand>
+                <img
+                    alt="site log"
+                    src="/logo192.png"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                />
+                <span className="ml-2">COVID-19 STAT</span>
+            </Navbar.Brand>
             <Nav.Item className="ml-auto">
                 <span className="text-muted">Last update: {new Date(latest.Date).toDateString()}</span>
             </Nav.Item>
