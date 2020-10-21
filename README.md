@@ -5,7 +5,7 @@ A simple COVID-19 coronavirus statistics web application.
 [Live Demo](https://covid-19-stat-83097.web.app) on Firebase.
 
 <p align="center">
-  <img width="700" src="https://github.com/yasuhikomachino/covid-19-stat/blob/master/images/app.jpg" />
+  <img width="700" src="https://github.com/yasuhikomachino/covid-19-stat/blob/master/images/site_image.jpg" />
 </p>
 
 ## Environment
