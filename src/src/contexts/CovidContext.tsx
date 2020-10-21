@@ -1,34 +1,34 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { fetchDailyDataByCountryApi } from "../api/api";
 import dailyDataByCountryJson from "../data/daily_data_by_country.json";
 import { DailyDataByCountry } from "../types/data";
 
-interface IContextProps {
-    fetchDailyDataByCountry: (country: string) => void;
+type ContextProps = {
     dailyDataByCountry: DailyDataByCountry;
-    changeCountry: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    country: string;
+    setCountry: (country: string) => void;
 }
 
-export const CovidContext = createContext({} as IContextProps);
+export const CovidContext = createContext({} as ContextProps);
 
-const CovidContextProvider:React.FC = (props: any) => {
+const CovidContextProvider: React.FC = (props) => {
     const [dailyDataByCountry, setDailyDataByCounty] = useState(dailyDataByCountryJson);
+    const [country, setCountry] = useState('japan')
 
     const fetchDailyDataByCountry = async (country: string) => {
         setDailyDataByCounty(await fetchDailyDataByCountryApi(country));
     };
 
-    const changeCountry = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const country = event.currentTarget.value;
+    useEffect(() => {
         fetchDailyDataByCountry(country);
-    };
+    }, [country]);
 
     return (
         <CovidContext.Provider
             value={{
                 dailyDataByCountry,
-                fetchDailyDataByCountry,
-                changeCountry: changeCountry,
+                country,
+                setCountry
             }}
         >
             {props.children}
