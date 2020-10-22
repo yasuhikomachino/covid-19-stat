@@ -18,7 +18,7 @@ A simple COVID-19 coronavirus statistics web application.
 - Node 14.11.0
 - React 16.14.0
 - TypeScript 3.9.7
-- firebase-tools 8.12.1
+- firebase-tools 8.13.0 
 
 ## Setup 
 
