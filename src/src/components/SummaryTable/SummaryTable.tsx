@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Table } from "react-bootstrap";
 import { fetchSummaryData } from "../../api/api";
 import summaryDataJson from "../../data/summary.json";
+import { SummaryCounty } from "../../types/data";
 
-const headers = [
+const headers: string[] = [
     "Country",
     "NewConfirmed",
     "TotalConfirmed",
@@ -13,11 +14,11 @@ const headers = [
     "TotalRecovered"
 ];
 
-const buildRow = (row: any, headers: any) => {
+const buildRow = (row: SummaryCounty, headers: string[]) => {
     return (
         <tr key={row.Country}>
             { headers.map((value: string, index: number) => {
-                return <td key={index}>{row[value]}</td>
+                return <td key={index}>{row[value as keyof SummaryCounty]}</td>
             })}
         </tr>
     )
@@ -38,7 +39,7 @@ const SummaryTable: React.FC = () => {
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
-                        {headers && headers.map((value, index) => {
+                        {headers && headers.map((value: string, index: number) => {
                             return <th key={index}><div>{value}</div></th>
                         })}
                     </tr>
