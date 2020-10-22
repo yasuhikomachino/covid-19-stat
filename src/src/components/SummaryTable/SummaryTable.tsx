@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from "react-bootstrap";
-import { fetchSummaryDataApi } from "../../api/api";
+import { fetchSummaryData } from "../../api/api";
 import summaryDataJson from "../../data/summary.json";
 
 const headers = [
@@ -26,12 +26,10 @@ const buildRow = (row: any, headers: any) => {
 const SummaryTable: React.FC = () => {
     const [summaryData, setSummaryData] = useState(summaryDataJson);
 
-    const fetchSummaryData = async () => {
-        setSummaryData(await fetchSummaryDataApi());
-    };
-
     useEffect(() => {
-        fetchSummaryData();
+        (async () => {
+            setSummaryData(await fetchSummaryData());
+        })();
     }, [])
 
     return (

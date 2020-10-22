@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { fetchDailyDataByCountryApi } from "../api/api";
+import { fetchDailyDataByCountry } from "../api/api";
 import dailyDataByCountryJson from "../data/daily_data_by_country.json";
 import { DailyDataByCountry } from "../types/data";
 
@@ -15,12 +15,10 @@ const CovidContextProvider: React.FC = (props) => {
     const [dailyDataByCountry, setDailyDataByCounty] = useState(dailyDataByCountryJson);
     const [country, setCountry] = useState('japan')
 
-    const fetchDailyDataByCountry = async (country: string) => {
-        setDailyDataByCounty(await fetchDailyDataByCountryApi(country));
-    };
-
     useEffect(() => {
-        fetchDailyDataByCountry(country);
+        (async () => {
+            setDailyDataByCounty(await fetchDailyDataByCountry(country));
+        })();
     }, [country]);
 
     return (
