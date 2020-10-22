@@ -37,6 +37,17 @@ const Footer: React.FC = () => {
                     https://covid19api.com/
                 </a>
             </p>
+            <p className="mb-0">
+                <span className="text-muted">Flag Icon: </span>
+                <a
+                    href="http://www.famfamfam.com/archive/flag-icons-released/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-info"
+                >
+                    http://www.famfamfam.com/archive/flag-icons-released/
+                </a>
+            </p>
         </Container>
     );
 };

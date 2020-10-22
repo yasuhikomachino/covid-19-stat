@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from "react-bootstrap";
+import { Table, Image } from "react-bootstrap";
 import { fetchSummaryData } from "../../api/api";
 import summaryDataJson from "../../data/summary.json";
 import { SummaryCounty } from "../../types/data";
@@ -18,7 +18,10 @@ const buildRow = (row: SummaryCounty, headers: string[]) => {
     return (
         <tr key={row.Country}>
             { headers.map((value: string, index: number) => {
-                return <td key={index}>{row[value as keyof SummaryCounty]}</td>
+                const flag = (value === "Country")
+                    ? <Image src={`/images/countries/${row['CountryCode'].toLowerCase()}.gif`} />
+                    : null;
+                return <td key={index}>{flag}  {row[value as keyof SummaryCounty]}</td>
             })}
         </tr>
     )
